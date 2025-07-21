@@ -9,23 +9,3 @@ document.addEventListener('DOMContentLoaded', () => {
     background.appendChild(particle);
   }
 });
-
-let downloadCount = localStorage.getItem('downloadCount') || 0;
-document.getElementById('download-count').innerText = downloadCount;
-
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    downloadCount++;
-    document.getElementById('download-count').innerText = downloadCount;
-    localStorage.setItem('downloadCount', downloadCount);
-    pulseCounter();
-  });
-});
-
-function pulseCounter() {
-  const counter = document.getElementById('download-count');
-  counter.style.animation = 'pulse 0.5s';
-  counter.addEventListener('animationend', () => {
-    counter.style.animation = '';
-  }, { once: true });
-}
